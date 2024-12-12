@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<h1>My publications</h1>
+
+{% for item in site.publications %}
+  <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+  <p>{{ item.description }}</p>
+{% endfor %}
+
