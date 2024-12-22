@@ -1,7 +1,7 @@
 ---
 layout: chapter
-title: What remains of the First Modern Reporter
-number: 1
+title: The 2nd reporter
+number: 2
 date:   2024-12-22 19:36 +0100
 description: "E' sfuggentemente forte"
 book_id: BALZOV

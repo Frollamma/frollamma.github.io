@@ -5,7 +5,6 @@ panel_includes:
   - toc
 tail_includes:
   - related-posts
-  - post-nav
 script_includes:
   - comment
 ---
@@ -122,7 +121,7 @@ script_includes:
     </dialog>
   {% endif %}
 
-  {% assign chapters = site.chapters | where: "book_id", page.book_id %}
+  {% assign chapters = site.chapters | where: "book_id", page.book_id | sort: "number" %}
   <div>
   <h2>Table of contents</h2>
   <ul>
@@ -135,6 +134,9 @@ script_includes:
   <div class="content">
     {{ content }}
   </div>
+
+  {% assign first_chapter = chapters | where: "number", 1 | first %}
+  <h3><a href="{{ first_chapter.url }}">Start reading "{{ first_chapter.title }}"</a></h3>
 
   <div class="post-tail-wrapper text-muted">
     <!-- categories -->

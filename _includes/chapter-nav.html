@@ -1,0 +1,37 @@
+<!-- Navigation buttons at the bottom of a chapter. Used to go to the next or previous chapter -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  {% assign chapters = site.chapters | where: "book_id"i, page.book_id %}
+  {% assign previous_chapter_number = page.number | minus: 1 %}
+  {% assign next_chapter_number = page.number | plus: 1 %}
+  {% assign previous = chapters | where: "number", previous_chapter_number | first %}
+  {% assign next = chapters | where: "number", next_chapter_number | first  %}
+
+  {% if previous.url %}
+    <a
+      href="{{ site.baseurl }}{{ previous.url }}"
+      class="btn btn-outline-primary"
+      aria-label="Chapter {{ previous.number }}"
+    >
+      <p>{{ previous.title }}</p>
+    </a>
+  {% else %}
+    <div class="btn btn-outline-primary disabled" aria-label="{{ previous.title }}">
+      <p>-</p>
+    </div>
+  {% endif %}
+
+  {% if next.url %}
+    <a
+      href="{{ site.baseurl }}{{ next.url }}"
+      class="btn btn-outline-primary"
+      aria-label="Chapter {{ next.number }}"
+    >
+      <p>{{ next.title }}</p>
+    </a>
+  {% else %}
+    <div class="btn btn-outline-primary disabled" aria-label="{{ next.title }}">
+      <p>-</p>
+    </div>
+  {% endif %}
+</nav>
