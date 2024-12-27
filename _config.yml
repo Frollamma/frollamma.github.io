@@ -16,7 +16,7 @@ timezone:
 
 title: Frollo # the main title
 
-tagline: Sto flaggando # it will display as the subtitle
+tagline: Flagging out # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Frollo's blog about CTFs, cybersecurity,  math and tech related stuff.
