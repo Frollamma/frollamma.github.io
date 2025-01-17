@@ -1,43 +1,25 @@
-# Chirpy Starter
+# Frollo's blog
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+This blog is based on [Chirpy Starter](https://github.com/cotes2020/chirpy-starter), it adds some functionalities like books and publications support.
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+Books are essentially (ordered) multipage posts, so if you have a long topic to talk about, you can divide it in multiple "chapters", each chapter links to the previous and next chapter and add a table of contents for navigation. The books chapters won't clutter automatically your posts, you can decide to create a post and link it to a book using `book-id` in the preable. Chapters start from number 1 (Should I allow for a default value?). 
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+Publications are posts that embed a PDF file, they are grouped in a separate tab called "notes" (you can easily change the name by renaming the file `notes.md` in the `_tabs` folder), they appear in the timeline (TODO), but not in the home. 
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
+## Install
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
-```
+You can follow the official installation method of Chirpy, or follow mine.
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+Follow these steps:
+- Install ruby and bundler
+- Clone this repo
+- Enter the repo directory and run `bundle install`
+- For development, run `bundle exec jekyll serve --livereload`
 
 ## Usage
 
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+First, check out [Chirpy theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
 
-## Contributing
+In this repo you have the following extra folders: `_chapters`, `_publications`. The `_publications` folder simply contains all the publications (just like the `_posts` folder contains all the posts), while the `_chapters` folder contain the chapters of all book, with the `book-id` in front of the name, I would like instead to have folders named with the book id, because I would get a cleaner folder structure.
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
 
-## License
-
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
