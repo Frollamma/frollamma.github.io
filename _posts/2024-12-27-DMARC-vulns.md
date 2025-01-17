@@ -6,7 +6,7 @@ categories: [cybersecurity]
 tag: [cybersecurity, email, DMARC, DKIM, SPF]
 description: "Or how to impersonate everyone's email!"
 mermaid: true
-#published: false
+published: false
 ---
 
 ## Introduction
@@ -82,3 +82,10 @@ It signs email messages
 ## Conclusion
 
 > This post has solely educative purposes. I do not endorse, and I'm not responsible of, any illegal activity you might do. Stay legal.
+
+# Your notes (don't publish this)
+
+## Resources
+
+- Video on how to set up an SMPT Relay (you should find a video on setting up an SMTP server) from a skilled a mail guy (but he uses Microsoft...): https://www.youtube.com/watch?v=LbhOrr2iUmI
+
