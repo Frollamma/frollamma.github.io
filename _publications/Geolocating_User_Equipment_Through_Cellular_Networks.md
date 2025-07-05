@@ -1,7 +1,7 @@
 ---
 layout: publication
 title: Geolocating User Equipment Through Cellular Networks
-date: 2025-04-19 17:04 +0100
+date: 2025-04-19 17:04 +0200
 #categories: [notes]
 #tag: [mathematics, university, notes]
 embedded_pdf_filename: "Geolocating_User_Equipment_Through_Cellular_Networks.pdf"

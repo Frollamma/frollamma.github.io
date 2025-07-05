@@ -1,7 +1,7 @@
 ---
 layout: book
 title: The Legend of BALZOV
-date:   2024-12-22 21:04 +0100
+date:   2024-12-22 21:04 +0200
 categories: [publication, story, example]
 tag: [BALZOV, creepypasta]
 description: "Monography on the Legend of BALZOV"

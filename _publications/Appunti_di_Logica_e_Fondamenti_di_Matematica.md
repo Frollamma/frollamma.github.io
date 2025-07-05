@@ -1,7 +1,7 @@
 ---
 layout: publication
 title: Appunti di Logica e Fondamenti di Matematica 
-date: 2022-07-25 16:00 +0100
+date: 2022-07-25 16:00 +0200
 #categories: [notes]
 #tag: [mathematics, university, notes]
 description: "Appunti di Logica e Fondamenti di Matematica"

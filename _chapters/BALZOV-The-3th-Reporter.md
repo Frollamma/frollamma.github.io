@@ -2,7 +2,7 @@
 layout: chapter
 title: The 3rd reporter
 number: 3
-date:   2024-12-22 19:36 +0100
+date:   2024-12-22 19:36 +0200
 description: "E' sfuggentemente forte"
 book_id: BALZOV
 ---
@@ -10,6 +10,7 @@ book_id: BALZOV
 Traces of the BALZOV creature can be found since the beginnings of human civilization, even before written sources were available.
 
 ## What we know
+
 BALZOV is very difficult to observe, but it is known to follow its few witnesses, for this reason there are few and rough estimates of its resemblance, apart some key features, like its height and face. I'm in danger myself, writing these notes, I will write them quickly hoping BALZOV can't enter my barricated home.
 
 ## What I know
