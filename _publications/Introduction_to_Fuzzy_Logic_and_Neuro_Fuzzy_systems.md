@@ -5,6 +5,7 @@ date: 2025-06-17 17:21 +0100
 #categories: [notes]
 #tag: [mathematics, university, notes]
 embedded_pdf_filename: "Introduction_to_Fuzzy_Logic_and_Neuro_Fuzzy_systems.pdf"
+authors: [frollo, lorella]
 ---
 
 We give a formal introduction to Fuzzy set Theory.
