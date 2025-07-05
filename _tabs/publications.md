@@ -1,7 +1,5 @@
 ---
 layout: publications
 icon: fas fa-book
-order: 3
+order: 1
 ---
-These are my notes:
-

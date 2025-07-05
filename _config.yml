@@ -19,11 +19,11 @@ title: Frollo # the main title
 tagline: Flagging out # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Frollo's blog about CTFs, cybersecurity,  math and tech related stuff.
+  Frollo's blog about math, CTFs and projects I like.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: ""
+url: "https://frollamma.github.io"
 
 github:
   username: Frollamma # change to your GitHub username
@@ -36,6 +36,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://github.com/Frollamma # change to your GitHub homepage
+    - https://codeberg.org/frollo
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
