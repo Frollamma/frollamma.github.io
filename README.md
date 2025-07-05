@@ -25,3 +25,7 @@ Follow these steps:
 First, check out [Chirpy theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
 
 In this repo you have the following extra folders: `_chapters`, `_publications`. The `_publications` folder simply contains all the publications (just like the `_posts` folder contains all the posts), while the `_chapters` folder contain the chapters of all book, with the `book-id` in front of the name, I would like instead to have folders named with the book id, because I would get a cleaner folder structure. - TODO
+
+## TODOs
+
+- I think that the publications should just be posts with also the added possibility to embed PDFs, instead of creating a different table (publications) that makes everything more difficult
