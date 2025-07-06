@@ -8,7 +8,7 @@ categories: [competitions]
 tags: [hackathon, crypto, XRP]
 ---
 
-On the 22th of November 2024, the _IXH24 Hackathon_ was held in Rome. It was a 24 hours hackathon with two tracks were available:
+On the 22th of November 2024, the _IXH24 Hackathon_ was held in Rome. It was a 24 hours hackathon with two tracks:
 
 1. Develop a cryptographic protocol to vote for a new president, where the voters hand over the vote to the president and the president must declare the results. The protocol must be such that the president can't cheat.
 2. Develop an application using XRPL (XRP Ledger)
@@ -31,4 +31,8 @@ This is what we produced:
 
 - [Diaden frontend](https://github.com/roodeeex/diaden.git) with [demo](https://diadenn.vercel.app)
 - [Diaden backend](https://github.com/Frollamma/IXH24-Hackathon)
+- The Mike logo (a work of art)
+
+![Mike Logo Photo](/assets/img/Mike_logo_photo.jpeg){: w="300" }
+
 - The pitch slides

@@ -2,7 +2,7 @@
 layout: post
 title: Geolocating User Equipment Through Cellular Networks
 date: 2025-04-19 17:04 +0200
-categories: [notes]
+categories: [publication]
 tag: [math, cybersecurity]
 embedded_pdf_filename: "Geolocating_User_Equipment_Through_Cellular_Networks.pdf"
 authors: [frollo, lorella]
