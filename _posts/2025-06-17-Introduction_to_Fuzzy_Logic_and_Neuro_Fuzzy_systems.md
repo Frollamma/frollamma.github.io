@@ -1,9 +1,9 @@
 ---
-layout: publication
+layout: post
 title: Introduction to Fuzzy Logic and Neuro Fuzzy systems
 date: 2025-06-17 17:21 +0200
-#categories: [notes]
-#tag: [mathematics, university, notes]
+categories: [notes]
+tag: [math, logic]
 embedded_pdf_filename: "Introduction_to_Fuzzy_Logic_and_Neuro_Fuzzy_systems.pdf"
 authors: [frollo, lorella]
 ---

@@ -5,6 +5,7 @@ panel_includes:
   - toc
 tail_includes:
   - related-posts
+  - post-nav
 script_includes:
   - comment
 ---
@@ -125,12 +126,11 @@ script_includes:
     {{ content }}
   </div>
 
-  <!-- Publication embedded PDF  -->
-  <object data="/assets/publications/{{ page.embedded_pdf_filename }}" type="application/pdf" width="100%" height="1000">
-	  alt : <a href="/assets/publications/{{ page.embedded_pdf_filename }}">{{ page.embedded_pdf_filename }}</a>
-  </object>
-
-  <a href="/assets/publications/{{ page.embedded_pdf_filename }}" target="_blank">Open in a new tab↗️</a>
+  {% if page.embedded_pdf_filename %}
+    <object data="/assets/embedded/{{ page.embedded_pdf_filename }}" type="application/pdf" width="100%" height="1000">
+      alt : <a href="/assets/embedded/{{ page.embedded_pdf_filename }}">{{ page.embedded_pdf_filename }}</a>
+    </object>
+  {% endif %}
 
   <div class="post-tail-wrapper text-muted">
     <!-- categories -->
@@ -183,4 +183,3 @@ script_includes:
   </div>
   <!-- div.post-tail-wrapper -->
 </article>
-

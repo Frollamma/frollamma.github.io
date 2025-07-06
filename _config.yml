@@ -170,8 +170,6 @@ collections:
     sort_by: order
   chapters:
     output: true
-  publications:
-    output: true
 
 defaults:
   - scope:

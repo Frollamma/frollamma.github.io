@@ -1,8 +1,8 @@
 ---
 published: true
-layout: publication
+layout: post
 title: XRP 2024 Hackathon in Rome
-date:   2025-07-05 21:43:00 +0200
+date:   2024-11-24 00:00:00 +0200
 embedded_pdf_filename: "Hackathon 2024 - Group F.pdf"
 categories: [competitions]
 tags: [hackathon, crypto, XRP]

@@ -1,15 +1,27 @@
 # Frollo's blog
 
-This blog is based on [Chirpy Starter](https://github.com/cotes2020/chirpy-starter), it adds some functionalities like books and publications support.
+This blog is based on [Chirpy Starter](https://github.com/cotes2020/chirpy-starter), it adds some new functionalities.
 
-Books are essentially (ordered) multipage posts, so if you have a long topic to talk about, you can divide it in multiple "chapters", each chapter links to the previous and next chapter and add a table of contents for navigation. The books chapters won't clutter automatically your posts, you can decide to create a post and link it to a book using `book-id` in the preamble. Chapters start from number 1 (Should I allow for a default value?).
+## Features
 
-Publications are posts that embed a PDF file (that should be stored in `assets/publications`), (TODO: add the possibility to attach any file)
-they are grouped in a separate tab called "publications" (you can easily change the name by renaming the file `publications.md` in the `_tabs` folder), they appear in the timeline, but not in the home.
+### PDF embed
+
+It's possible to embed a PDF at the end of the page by using the front matter key `embedded_pdf_filename`.
+
+### Books
+
+Books are essentially (ordered) multipage posts, so if you have a long topic to talk about, you can divide it in multiple "chapters", each chapter links to the previous and next chapter and add a table of contents for navigation. The books chapters won't clutter automatically your posts, you can decide to create a post and link it to a book using `book-id` in the preamble. Chapters start from number 1.
+
+In this repo you have an extra directory `_chapters`. The `_chapters` directory contain the chapters of all books, each chapter has these extra front matter keys:
+
+- `book-id`: The id of the book. For example, `MyFantasyBook`.
+- `number`: The number of the chapter, the first chapter must be `1`.
+
+You can give any name to the files in `_chapters`, but it's a good practice to start the name with the `book-id`, for example `MyFantasyBook-01-The-Beginning`, if you add also the chapter number after the book id, the files are easier to sort alphabetically.
 
 ## Install
 
-You can follow the official installation method of Chirpy, or follow mine.
+You can follow the [official installation method of Chirpy](https://chirpy.cotes.page/posts/getting-started/), or follow mine.
 
 Follow these steps:
 
@@ -18,14 +30,17 @@ Follow these steps:
 - Enter the repo directory
 - (Recommended) Set bundler to work locally: `bundle config set --local path vendor/bundle`
 - Run `bundle install`
-- For development, run `bundle exec jekyll serve --livereload`
 
 ## Usage
 
 First, check out [Chirpy theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
 
-In this repo you have the following extra folders: `_chapters`, `_publications`. The `_publications` folder simply contains all the publications (just like the `_posts` folder contains all the posts), while the `_chapters` folder contain the chapters of all book, with the `book-id` in front of the name, I would like instead to have folders named with the book id, because I would get a cleaner folder structure. - TODO
+- For development, run `bundle exec jekyll serve --livereload`
+- For production, run `JEKYLL_ENV=production bundle exec jekyll build` or use Github Actions as described in the [Chirpy docs](https://chirpy.cotes.page/posts/getting-started/#deploy-using-github-actions).
 
 ## TODOs
 
-- I think that the publications should just be posts with also the added possibility to embed PDFs, instead of creating a different table (publications) that makes everything more difficult
+Enhancements:
+
+- Make it possible to attach any file to a post
+- The current way of storing book chapters is ugly, I would like to have directories named with the `book-id` and inside of them the actual chapters.
