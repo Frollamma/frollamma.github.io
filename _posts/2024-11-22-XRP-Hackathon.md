@@ -29,6 +29,6 @@ In our example the manufacturer company produces shoes and it's called Mike:
 
 This is what we produced:
 
-- [Diaden presentation]()
 - [Diaden frontend](https://github.com/roodeeex/diaden.git) with [demo](https://diadenn.vercel.app)
 - [Diaden backend](https://github.com/Frollamma/IXH24-Hackathon)
+- The pitch slides
