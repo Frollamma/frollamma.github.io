@@ -2,10 +2,11 @@
 published: true
 layout: post
 title: XRP 2024 Hackathon in Rome
+description: My first blockchain Hackathon!
 date:   2024-11-24 00:00:00 +0200
 embedded_pdf_filename: "Hackathon 2024 - Group F.pdf"
 categories: [competitions]
-tags: [hackathon, crypto, XRP]
+tags: [hackathon, blockchain, XRP]
 ---
 
 On the 22th of November 2024, the _IXH24 Hackathon_ was held in Rome. It was a 24 hours hackathon with two tracks:

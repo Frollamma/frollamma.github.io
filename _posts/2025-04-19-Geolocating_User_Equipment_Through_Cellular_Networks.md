@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Geolocating User Equipment Through Cellular Networks
+description: ... or my take on how to locate anybody by (ab)using SMSs
 date: 2025-04-19 17:04 +0200
 categories: [publication]
 tag: [math, cybersecurity]

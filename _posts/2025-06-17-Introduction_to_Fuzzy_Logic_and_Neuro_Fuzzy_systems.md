@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Introduction to Fuzzy Logic and Neuro Fuzzy systems
+description: A clear introduction to Fuzzy Systems
 date: 2025-06-17 17:21 +0200
 categories: [publication]
 tag: [math, logic]
