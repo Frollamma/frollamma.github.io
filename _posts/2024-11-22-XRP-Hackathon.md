@@ -7,6 +7,7 @@ date:   2024-11-24 00:00:00 +0200
 embedded_pdf_filename: "Hackathon 2024 - Group F.pdf"
 categories: [competitions]
 tags: [hackathon, blockchain, XRP]
+authors: [frollo, mario_pezzella, davide_aruta, davide_brignola, luca_migliaccio, youssef]
 ---
 
 On the 22th of November 2024, the _IXH24 Hackathon_ was held in Rome. It was a 24 hours hackathon with two tracks:
