@@ -12,8 +12,6 @@ mermaid: true
 
 This is a guide on how to pass strong integrity checks on an Android device using Magisk. It contains with many explanations on what we're doing and why, it aims to be mostly self-contained. If you're on a rush you can skip the explanations and go to the [guide](#guide).
 
-If you don't want have a rooted phone and you are using in a custom ROM that allows to set a custom `keybox.xml` file, you can check [a rootless integrity fix guide](https://github.com/yadavnikhil03/Play-integrity-fix-guide/blob/main/guide/keybox_guide.md).
-
 ## How it works
 
 Before listing the steps to get strong integrity on our device, let's understand what is the [Google Play Integrity API](https://developer.android.com/google/play/integrity/verdicts) and why we would want to pass its checks.
@@ -123,6 +121,8 @@ These are the tools we will use, let's analyze them:
 - [Key Attestation](https://github.com/VisionR1/KeyAttestation): App that checks that tests the device ability to pass attestation challenges and gives details on the certificates.
 
 ## Guide
+
+This guide requires a rooted phone, if you don't want have a rooted phone and you are using in a custom ROM that allows to set a custom `keybox.xml` file, you can check [a rootless integrity fix guide](https://github.com/yadavnikhil03/Play-integrity-fix-guide/blob/main/guide/keybox_guide.md).
 
 To get strong integrity do this:
 
