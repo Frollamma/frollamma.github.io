@@ -131,15 +131,12 @@ To get strong integrity do this:
   - Hide Magisk: a feature that creates a "proxy app" with an arbitrary name to hide Magisk
   - Configure denylist (don't press "Enforce denylist") and add: Google Play Services, Google Play Store, Google Services Framework and any app you want to hide root from.
   - Install these modules: ReZygisk. Reboot. Play Integrity Fork, Tricky Store, YuriKey, NoHello. Reboot.
-  - Run actions for these modules: Play Integrity Fork, Tricky Store (grant root)
-- In KsuWebUI (comes with Tricky Store), select Tricky Store (the first time usually this step is already done for you), click on the hamburger menu and press:
-  - Select All -> Deselect Unecessary -> Set Security Patch -> Get Security Patch Date -> Save
-<!--   - Set Valid Keybox (I don't know if this step is actually useful - TODO: CHECK) -->
-<!-- Finally hit Save. -->
-- Run YuriKey action in Magisk
+  - Run actions for these modules: Play Integrity Fork, YuriKey
 - Reboot and check your integrity using: [Play Integrity API Checker](https://github.com/1nikolas/play-integrity-checker-app) and [Key Attestation](https://github.com/VisionR1/KeyAttestation)
 
 You should now pass all the integrity tests.
+
+> Note: The process to pass strong integrity is always evolving, so you might need to repeat the same steps multiple times or change something along the way. I will try to keep the post updated. Check also [these tips](#theres-more).
 
 ### There's more
 
@@ -150,11 +147,7 @@ Here are some extra tools you might want to install:
 - [Android-Native-Root-Detector](https://github.com/reveny/Android-Native-Root-Detector): an app to check root detection.
 - [BetterKnowInstalled](https://github.com/Pixel-Props/BetterKnownInstalled): module that avoids the `UNKNOWN_INSTALLED` status in DroidGuard.
 - [Zygisk detach](https://github.com/j-hc/zygisk-detach): a module used to prevent the Play Store to automatically update apps, even if the auto update feature is turned off. It is useful to lock a problematic app version if a working setup was found.
-<!-- - Try [Apatch](https://github.com/bmax121/APatch): it is a new rooting method with some advantages over KernelSU and Magisk, my device wasn't compatible but might be worth checking it out, it won't be compatible with this guide tho (not fully at least). -->
-
-<!-- Not used stuff: -->
-<!-- <https://github.com/B1ays/BootloaderSpoofer-fork> -->
-<!-- <https://github.com/EricInacio01/PlayIntegrityFix-NEXT> -->
+- [Update Locker](https://github.com/Xposed-Modules-Repo/ru.mike.updatelocker/releases/): an Xposed module to prevent auto updates of popular app stores (including Google Play). I used this app to prevent Google Play from updating (Zygisk detach didn't work for this purpose), it had a breaking update that didn't make it possible to get strong integrity, but just basic, it was also needed to work completely offline (you can turn off your SIM).
 
 ## Final words
 
