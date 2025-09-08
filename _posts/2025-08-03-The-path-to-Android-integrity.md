@@ -119,12 +119,14 @@ These are the tools we will use, let's analyze them:
 - [NoHello](https://github.com/MhmRdd/NoHello): A module to hide root and Zygisk from apps. There are some alternatives like: [Shamiko](https://github.com/LSPosed/LSPosed.github.io/releases) (closed source), [Zygisk Assistant](https://github.com/snake-4/Zygisk-Assistant/releases).
 - [Play Integrity API Checker](https://github.com/1nikolas/play-integrity-checker-app): App that performs integrity checks using the Play Integrity API.
 - [Key Attestation](https://github.com/VisionR1/KeyAttestation): App that checks that tests the device ability to pass attestation challenges and gives details on the certificates.
+- [JingMatrix's LSPosed](https://github.com/JingMatrix/LSPosed): LSPosed is replacement of Xposed, an advanced framework for modules that can change system and apps without editing APKs. There are in fact Xposed/LSPosed modules, they are not Magisk modules.
+- [Update Locker](https://github.com/Xposed-Modules-Repo/ru.mike.updatelocker/): an Xposed module to prevent auto updates of apps from popular app stores (including Google Play Store). [Zygisk detach](https://github.com/j-hc/zygisk-detach) is a more lightweight alternative (just CLI) that is not an Xposed module but a Magisk module, it only works for apps updated by Google Play Store (and that's usually what you need). Locking the version of a problematic app is useful if a working environment was found.
 
 ## Guide
 
 This guide requires a rooted phone, if you don't want have a rooted phone and you are using in a custom ROM that allows to set a custom `keybox.xml` file, you can check [a rootless integrity fix guide](https://github.com/yadavnikhil03/Play-integrity-fix-guide/blob/main/guide/keybox_guide.md).
 
-To get strong integrity do this:
+Follow these steps. You will need to install some [tools](#tools-used) along the way.
 
 - Install the latest version of Magisk
 - Inside Magisk:
@@ -132,9 +134,8 @@ To get strong integrity do this:
   - Configure denylist (don't press "Enforce denylist") and add: Google Play Services, Google Play Store, Google Services Framework and any app you want to hide root from.
   - Install these modules: ReZygisk. Reboot. Play Integrity Fork, Tricky Store, YuriKey, NoHello. Reboot.
   - Run actions for these modules: Play Integrity Fork, YuriKey
-- Reboot and check your integrity using: [Play Integrity API Checker](https://github.com/1nikolas/play-integrity-checker-app) and [Key Attestation](https://github.com/VisionR1/KeyAttestation)
-
-You should now pass all the integrity tests.
+- Reboot and check your integrity using: Play Integrity API Checker and Key Attestation
+- If you pass the checks, consider locking the version of problematic apps, for example Google Play Store, using Update Locker or zygisk-detach.
 
 > Note: The process to pass strong integrity is always evolving, so you might need to repeat the same steps multiple times or change something along the way. I will try to keep the post updated. Check also [these tips](#theres-more).
 
@@ -142,15 +143,15 @@ You should now pass all the integrity tests.
 
 Here are some extra tools you might want to install:
 
-- [JingMatrix's LSPosed](https://github.com/JingMatrix/LSPosed): LSPosed is replacement of Xposed, an advanced framework for modules that can change system and apps without editing APKs. There are infact Xposed modules (that are not Magisk modules).
 - [Hide My Applist (HMA)](https://github.com/Dr-TSNG/Hide-My-Applist): an Xposed module that denies or spoofs app list requests from apps. The idea is that an app can detect root by getting the list of installed apps, if an app that requires root is installed, then it's very likely that the device is rooted.
 - [Android-Native-Root-Detector](https://github.com/reveny/Android-Native-Root-Detector): an app to check root detection.
 - [BetterKnowInstalled](https://github.com/Pixel-Props/BetterKnownInstalled): module that avoids the `UNKNOWN_INSTALLED` status in DroidGuard.
-- [Zygisk detach](https://github.com/j-hc/zygisk-detach): a module used to prevent the Play Store to automatically update apps, even if the auto update feature is turned off. It is useful to lock a problematic app version if a working setup was found.
-- [Update Locker](https://github.com/Xposed-Modules-Repo/ru.mike.updatelocker/releases/): an Xposed module to prevent auto updates of popular app stores (including Google Play). I used this app to prevent Google Play from updating (Zygisk detach didn't work for this purpose), it had a breaking update that didn't make it possible to get strong integrity, but just basic, it was also needed to work completely offline (you can turn off your SIM).
+- [Android Faker](https://github.com/Android1500/AndroidFaker): an Xposed module to spoof some system info, useful to avoid fingerprinting or bypassing some limitations.
+- [F-droid](https://f-droid.org/): an alternative app store for open source apps.
 
 ## Final words
 
-Years ago [Google started a war](https://xdaforums.com/t/discussion-the-root-and-mod-hiding-fingerprint-spoofing-keybox-stealing-cat-and-mouse-game.4425939/) to modding, over time this made the experience very frustrating and I think this is preventing many people to try modding or even to roll back to a stock setup, as consequence I feel like the community is slowly dying. Modding is risky (it can get your bank account frozen for example, personal experience...), but the price is usually a more powerful, more private and more free phone.
+Years ago [Google started a war](https://xdaforums.com/t/discussion-the-root-and-mod-hiding-fingerprint-spoofing-keybox-stealing-cat-and-mouse-game.4425939/) to modding, over time this made the experience very frustrating and I feel like the community is at risk. Modding is dangerous because corporations made it very dangerous: you can void your warranty, lose data, lose access to countless useful apps or even get locked out of your bank account (personal experience), but the prize is usually a more powerful, more private and more free phone. Please fight back. Explore and
+support open source modding/rooting projects and dispute the increasingly oppressive attitude of corporations like Google.
 
 Peace.
