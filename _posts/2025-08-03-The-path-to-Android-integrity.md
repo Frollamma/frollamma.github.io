@@ -3,7 +3,7 @@ published: true
 layout: post
 title: The path to (Android) integrity
 description: A guide on how strong integrity checks works on Android and how to bypass them
-date:   2025-08-03 21:35:00 +0200
+date: 2025-08-03 21:35:00 +0200
 categories: [hacking, cryptography]
 tags: [hacking, android, root, cryptography, magisk, zygisk, certificates]
 authors: [frollo]
@@ -112,19 +112,18 @@ In order to pass those checks they can hide/spoof/hack some device information.
 These are the tools we will use, let's analyze them:
 
 - [Magisk](https://github.com/topjohnwu/Magisk): a "systemless" root solution, it's used to install modules that will bypass integrity checks. There are many forks of Magisk, a well known one is [Kitsune Mask](https://github.com/1q23lyc45/KitsuneMagisk/blob/kitsune/docs/changes.md), but I couldn't use it because it's many versions behind the upstream Magisk.
-- [Play Integrity Fork (PIFork)](https://github.com/osm0sis/PlayIntegrityFork): a module that helps passing the integrity checks (but alone it's not sufficient).
+- [Play Integrity Fix Inject (PIFInject)](https://github.com/KOWX712/PlayIntegrityFix): a module that helps passing the integrity checks, the "inject" version is the most advanced of the PIFs that I know about (it has more settings), for this guide, for now, it's necessary, but in the past I was able to make everything work using [Play Integrity Fork (PIFork)](https://github.com/osm0sis/PlayIntegrityFork), that is more straightforward, probably in the future it will happen again.
 - [ReZygisk](https://github.com/PerformanC/ReZygisk): a fork of [Zygisk Next](https://github.com/Dr-TSNG/ZygiskNext/tree/698e6e6624e7b5aae47146d098b8853250aa4ae3) with a FOSS licence. Zygisk Next is a standalone implementation of [Zygisk](https://github.com/topjohnwu/Magisk/tree/master/native/src/core/zygisk), it was open source up to and excluding version 0.9.2, subsequently all rights have been reserved. Zygisk is a Magisk component that allows module developers to inject code at runtime that changes the applications and system behavior (see the [relevant comment in Zygisk](https://github.com/topjohnwu/Magisk/blob/master/native/src/core/zygisk/api.hpp) for more). Having a standalone program that implements the same Zygisk logic and has the same API is important because it can be reused by other root solutions (ex: ReZygisk can be used also by [KernelSU](https://github.com/tiann/KernelSU)). There's also [NeoZygisk](https://github.com/JingMatrix/NeoZygisk) that is similar to ReZygisk.
 - [Tricky Store](https://github.com/5ec1cff/TrickyStore): a (now closed source) Zygisk module that allows to pass device integrity checks by hacking Android's certification chain. It's also possible to pass strong integrity by providing an unrevoked `keybox.xml` file that provides a genuine certificate chain. It's possible to apply Tricky Store to specific apps by manually setting a file `target.txt` (it's a list of app packages, one per line).
-- [YuriKey](https://github.com/YurikeyDev/yurikey): sets the `keybox.xml` and `target.txt` files of `Tricky Store` automatically, it includes a genuine certificate chain in the `keybox.xml` file that gets periodically updated, because certificates [get revoked by Google](https://developer.android.com/privacy-and-security/security-key-attestation#certificate_status) if, for example, too many Play Integrity checks are done with that keybox.
+- [YuriKey](https://github.com/YurikeyDev/yurikey): sets the `keybox.xml` and `target.txt` files of `Tricky Store` automatically, it includes a genuine certificate chain in the `keybox.xml` file that gets periodically updated, because certificates [get revoked by Google](https://developer.android.com/privacy-and-security/security-key-attestation#certificate_status) if, for example, too many Play Integrity checks are done with that keybox (so don't spam Integrity checks).
 - [NoHello](https://github.com/MhmRdd/NoHello): A module to hide root and Zygisk from apps. There are some alternatives like: [Shamiko](https://github.com/LSPosed/LSPosed.github.io/releases) (closed source), [Zygisk Assistant](https://github.com/snake-4/Zygisk-Assistant/releases).
 - [Play Integrity API Checker](https://github.com/1nikolas/play-integrity-checker-app): App that performs integrity checks using the Play Integrity API.
 - [Key Attestation](https://github.com/VisionR1/KeyAttestation): App that checks that tests the device ability to pass attestation challenges and gives details on the certificates.
 - [JingMatrix's LSPosed](https://github.com/JingMatrix/LSPosed): LSPosed is replacement of Xposed, an advanced framework for modules that can change system and apps without editing APKs. There are in fact Xposed/LSPosed modules, they are not Magisk modules.
-- [Update Locker](https://github.com/Xposed-Modules-Repo/ru.mike.updatelocker/): an Xposed module to prevent auto updates of apps from popular app stores (including Google Play Store). [Zygisk detach](https://github.com/j-hc/zygisk-detach) is a more lightweight alternative (just CLI) that is not an Xposed module but a Magisk module, it only works for apps updated by Google Play Store (and that's usually what you need). Locking the version of a problematic app is useful if a working environment was found.
 
 ## Guide
 
-This guide requires a rooted phone, if you don't want have a rooted phone and you are using in a custom ROM that allows to set a custom `keybox.xml` file, you can check [a rootless integrity fix guide](https://github.com/yadavnikhil03/Play-integrity-fix-guide/blob/main/guide/keybox_guide.md).
+This guide requires a rooted phone, if you don't want have a rooted phone and you are using in a custom ROM that allows to set a custom `keybox.xml` file, you can check [a rootless integrity fix guide](https://github.com/yadavnikhil03/Play-integrity-fix-guide/blob/main/guide/keybox_guide.md), I didn't try it, but you can.
 
 Follow these steps. You will need to install some [tools](#tools-used) along the way.
 
@@ -132,10 +131,14 @@ Follow these steps. You will need to install some [tools](#tools-used) along the
 - Inside Magisk:
   - Hide Magisk: a feature that creates a "proxy app" with an arbitrary name to hide Magisk
   - Configure denylist (don't press "Enforce denylist") and add: Google Play Services, Google Play Store, Google Services Framework and any app you want to hide root from.
-  - Install these modules: ReZygisk. Reboot. Play Integrity Fork, Tricky Store, YuriKey, NoHello. Reboot.
-  - Run actions for these modules: Play Integrity Fork, YuriKey
+  - Install these modules: ReZygisk. Reboot. Play Integrity Fork Inject, Tricky Store, YuriKey, NoHello. Reboot.
+  - Run actions for these modules:
+    - Play Integrity Fork Inject. Be sure that these options are turned on: `Spoof Build`, `Spoof Build (Play Store)`, `Spoof Signature`, `Spoof Sdk (Play Store)`.
+    - YuriKey
 - Reboot and check your integrity using: Play Integrity API Checker and Key Attestation
-- If you pass the checks, consider locking the version of problematic apps, for example Google Play Store, using Update Locker or zygisk-detach.
+- If something didn't work (or stopped working after some time), consider trying again adding these steps and try again:
+  - Delete Play Store data
+  - If you got Basic Integrity and Device Integrity, but not Strong Integrity it might be because the YuriKey module is not always up to date with the latest working keybox, in this case you might want to ask on [Yuri's Telegram group](t.me/yurichattt) for the latest keybox, sometimes there's no keybox and you need to wait. In this case you need to run the action for Tricky Store and a GUI will open up (otherwise go on the app KsuWebUI and select Tricky Store, it should have been installed automatically when you installed Tricky Store), press on the hamburger menu, you should see a `Set Custom Keybox` option, and just upload your keybox.
 
 > Note: The process to pass strong integrity is always evolving, so you might need to repeat the same steps multiple times or change something along the way. I will try to keep the post updated. Check also [these tips](#theres-more).
 
@@ -145,9 +148,10 @@ Here are some extra tools you might want to install:
 
 - [Hide My Applist (HMA)](https://github.com/Dr-TSNG/Hide-My-Applist): an Xposed module that denies or spoofs app list requests from apps. The idea is that an app can detect root by getting the list of installed apps, if an app that requires root is installed, then it's very likely that the device is rooted.
 - [Android-Native-Root-Detector](https://github.com/reveny/Android-Native-Root-Detector): an app to check root detection.
+- [Update Locker](https://github.com/Xposed-Modules-Repo/ru.mike.updatelocker/): an Xposed module to prevent auto updates of apps from popular app stores (including Google Play Store). [Zygisk detach](https://github.com/j-hc/zygisk-detach) is a more lightweight alternative (just CLI) that is not an Xposed module but a Magisk module, it only works for apps updated by Google Play Store (and that's usually what you need). Locking the version of a problematic app is useful if a working environment was found. It's also good practice to go in the Google Play Store settings and set the option to not update automatically the apps, even tho it will do it from time to time, no matter what, that's what these modules are for.
 - [BetterKnowInstalled](https://github.com/Pixel-Props/BetterKnownInstalled): module that avoids the `UNKNOWN_INSTALLED` status in DroidGuard.
 - [Android Faker](https://github.com/Android1500/AndroidFaker): an Xposed module to spoof some system info, useful to avoid fingerprinting or bypassing some limitations.
-- [F-droid](https://f-droid.org/): an alternative app store for open source apps.
+- [F-droid](https://f-droid.org/): an alternative app store for open source apps. There's also [Droidfy](https://github.com/Droid-ify/client), that has some extra features built-in and a more clean UI.
 
 ## Final words
 
