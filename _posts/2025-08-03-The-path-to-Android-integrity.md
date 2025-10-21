@@ -107,6 +107,11 @@ if you don't get any errors, it's correct.
 Users of custom ROMs and/or root users might easily fail integrity checks, making many apps not usable, typically banking apps.
 In order to pass those checks they can hide/spoof/hack some device information.
 
+### How it's even possible a bypass
+
+The [integrity checks described](#what-is-android-certificate-chain) seem very strict, so it might seem impossible to bypass them. The idea is that if you get the private key of a certificate signed by Google you did it! You can pass attestation checks! So how do you get it? Well... Seems like some people, somehow, are able to leak certificate keys from manufacturers... Don't ask me how.
+Finally valid keyboxes are shared with the community and you can enjoy.
+
 ### Tools used
 
 These are the tools we will use, let's analyze them:
